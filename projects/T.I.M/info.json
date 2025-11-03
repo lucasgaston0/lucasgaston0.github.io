@@ -1,0 +1,14 @@
+{
+  "title": "T.I.M.",
+  "role": "Programmer",
+  "team size": 4,
+  "project duration": "1 Week",
+  "toolset": "Unity",
+  "logline": "T.I.M. is a high-octane 3D action-platformer where every second is a resource. You’re a robot with an internal self-destruct module on a 30-second timer, and your survival depends on grabbing shimmering energy crystals scattered through a fractured canyon and taking down enemy bots to recharge your battery. Master parkour, collect energy sources to extend your runtime, and balance risk vs. reward: ¿Slow and safe, or fast and dangerous?",
+  "itchio": "https://lucasgaston.itch.io/tim",
+  "tags": [
+    "Third Person",
+    "Action-Platformer",
+    "Sci-Fi"
+  ]
+}

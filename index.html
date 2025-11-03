@@ -1,145 +1,1243 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>WebXR made with Unity sample</title>
-  <link rel="shortcut icon" href="TemplateData/favicon.ico">
-  <link rel="stylesheet" href="TemplateData/style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163892314-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-163892314-1');
-  </script>
-  <script src="TemplateData/UnityProgress.js"></script>
-  <script src="Build/UnityLoader.js"></script>
-  <script>
-    UnityLoader.SystemInfo.mobile = false;  // workaround to prevent the warning popup from opening on mobile phone
-
-    if (["Edge", "Firefox", "Chrome", "Safari"].indexOf(UnityLoader.SystemInfo.browser) == -1) {
-      UnityLoader.SystemInfo.browser = "Firefox"; // another workaround to prevent the warning popup from opening on unknown browsers
-    }
-
-    //
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Nikesh.json", { onProgress: UnityProgress });
-
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-      // Show browser WebXR capability
-      if ('xr' in navigator) {
-        navigator.xr.isSessionSupported('immersive-vr').then(function (supported) {
-          if (supported) {
-            document.getElementById("webxr-supported-vr").style.display = "inline-block";
-            document.getElementById("webxr-not-supported").style.display = "none";
-          }
-        })
-
-        navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
-          if (supported) {
-            document.getElementById("webxr-supported-ar").style.display = "inline-block";
-            document.getElementById("webxr-not-supported").style.display = "none";
-          }
-        })
-      }
-
-      // Show a message if the current window is not secured
-      if (window.isSecureContext===true) { // page secured
-        document.getElementById("page-secured").style.display = "inline-block";
-        document.getElementById("page-not-secured").style.display = "none";
-      }
-	  else if(window.isSecureContext===false) { // page not secured
-        document.getElementById("page-secured").style.display = "none";
-        document.getElementById("page-not-secured").style.display = "inline-block";
-	  }
-	  else{ // window.isSecureContext not supported (like servo)
-        document.getElementById("page-secured").style.display = "none";
-        document.getElementById("page-not-secured").style.display = "none";
-	  }
-
-
-      // Show a message if WebGL2.0 experimental feature is enabled on Webkit
-      if (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1) {
-        if (UnityLoader.SystemInfo.hasWebGL == 2) {
-          document.getElementById("safari-webgl-nok").style.display = "inline-block";
-        }
-        else {
-          document.getElementById("safari-webgl-ok").style.display = "inline-block";
-        }
-      }
-
-
-      // Modal popup
-      var modal = document.getElementById("modalPopup");
-      document.getElementsByClassName("close")[0].onclick = function () {
-        modal.style.display = "none";
-      }
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-
-      // on iOS 13+, show request permission button
-      document.addEventListener("SimpleWebXRNeedMotionPermission", () => {
-        modal.style.display = "block";
-      }, false);
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    
 </head>
-
 <body>
-  <div class="webgl-content">
-    <div style="margin: auto;width: 960px; height: 600px;">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
-    </div>
-    <div class="footer">
-      <div class="webgl-logo"></div>
-      <div class="fullscreen" onclick="gameInstance.SendMessage('WebXR', 'StartSession')"></div>
-      <div class="title">[SimpleWebXR]</div>
-    </div>
-    <div class="footer">See how it works on GitHub : <a
-        href="https://github.com/Rufus31415/Simple-WebXR-Unity">https://github.com/Rufus31415/Simple-WebXR-Unity</a>
-    </div>
-  </div>
- 
- 
-    <!-- Browser capabilities -->
-    <div>
-    <table style="margin:auto">
-      <tr>
-        <td class="cell-ok" id="webxr-supported-ar" style="display: none;">✔️ WebXR supported (AR)</td>
-        <td class="cell-ok" id="webxr-supported-vr" style="display: none;">✔️ WebXR supported (VR)</td>
-        <td class="cell-nok" id="webxr-not-supported">❌ WebXR not supported</td>
-        <td class="cell-ok" id="hand-supported" style="display: none;">👌 Hand tracking enabled</td>
-        <td class="cell-nok" id="hand-not-supported" style="display: none;">👎 Hand tracking not supported on this
-          device</td>
-        <td class="cell-ok" id="page-secured" style="display: none;">🔒 Page is secured</td>
-        <td class="cell-nok" id="page-not-secured">🚫 Page is not secured (https or localhost)</td>
-        <td class="cell-ok" id="safari-webgl-ok" style="display: none;">✔️ WebGL 2.0 should be disabled on Safari</td>
-        <td class="cell-nok" id="safari-webgl-nok" style="display: none;">❌ WebGL 2.0 should be disabled on Safari, go
-          to settings and disable this experimental feature</td>
-      </tr>
-    </table>
-  </div>
+    <header class="fondo">
+        <nav class="navbar navbar-expand-xl navbar-dark p-4 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Lucas Symeoñides</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item px-4">
+                            <a class="nav-link active" aria-current="page" href="#aboutme">About me</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="#experience">Experience</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="#contactme">Contact me</a>
+                        </li>
+                        <li class="nav-item px-4 pt-2 lang-item">
+                            <img src="img/Language_EN.png" alt="Cambiar idioma" class="lang-toggle-img">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-   <!-- Footer samples -->
-   <iframe src="/webxr/webxr-carousel.html"
-    onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
-    style="height:500px;width:100%;border:none;overflow:hidden;"></iframe>
+        <!-- Title and Profile Picture -->
+        <section class="inicio fondo d-flex align-items-center min-vh-100 d-none d-md-flex">
+            <div class="row align-items-center w-100">
+                <div class="texto col-md-7 text-white ps-5">
+                    <h1 class="fw-semibold">SEMI SENIOR </h1>
+                    <h1 class="fw-semibold pb-3">GAMEPLAY PROGRAMMER</h1>
+                    <h2 class="gradient-border">Lucas Symeoñides</h2>
+                </div>
 
-  <!-- The Modal popup -->
-  <div id="modalPopup" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p><a href="#" id="iosPermission" style="display:none;"
-        onclick="DeviceMotionEvent.requestPermission();modal.style.display='none'">Click here to allow accelerometer access</a></p>
-    </div>
+                <div class="col-md-5 text-center">
+                    <img src="img/Profile_Picture.png" alt="Lucas Gaston Symeonides" class="img-fluid perfil">
+                </div>
+            </div>
+        </section>
 
-  </div>
+        <section class="inicio fondo d-flex align-items-center d-block d-md-none">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center">
+                        <img src="img/Profile_Picture.png" alt="Lucas Gaston Symeonides" class="img-fluid perfil ">
+                    </div>
+                    <div class="col-md-7 text-white">
+                        <h1 class="fw-semibold">SEMI SENIOR </h1>
+                        <h1 class="fw-semibold pb-3">GAMEPLAY PROGRAMMER</h1>
+                        <h2 class="gradient-border">Lucas Symeoñides</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </header>
+
+    <!--About Me-->
+    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="aboutme">
+        <div class="container text-center mb-5">
+            <h1 class="fw-bold projects-title">ABOUT ME</h1>
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Columna 1: Texto -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h2 class="fw-bold mb-3 fs-1">Who Am I?</h2>
+
+                    <p class="fs-4 mb-2">
+                        <strong>I’m a passionate Game Developer from Argentina</strong>
+                    </p>
+
+                    <p class="fs-5" style="line-height: 1.6;">
+                        I specialize in programming, with expertise in design patterns, complex systems, multiplayer integration,
+                        virtual reality, gameplay mechanics, as well as front-end and back-end development.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Imagen -->
+                <div class="col-md-6 text-center">
+                    <img src="img/Profile_Picture_2.jpg" alt="Profile Picture"
+                         class="img-fluid rounded-5 shadow-lg" style="max-width: 300px;">
+                </div>
+
+
+
+                <!-- Nueva Row: Botones -->
+                <div class="row mt-5 mb-5 justify-content-center  text-start align-items-center gap-5">
+                    <div class="col-auto">
+                        <a href="documents/CV Lucas Symeoñides 2025.pdf"
+                           class="gradient-border-large text-decoration-none d-inline-flex align-items-center justify-content-center ps-4">
+                            <strong>Get Resume</strong>
+                            <i class="bi bi-file-earmark-arrow-down-fill resume-icon"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="https://www.linkedin.com/in/lucas-symeonides/" target="_blank">
+                            <img src="img/Linkedin Logo.png" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="https://lucasgaston.itch.io/" target="_blank">
+                            <img src="img/Itchio Logo.png" alt="Itch.io" class="social-icon">
+                        </a>
+                    </div>
+
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="https://lucasgaston.artstation.com/" target="_blank">
+                            <img src="img/Artstation Logo.png" alt="ArtStation" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nueva sección: Software I Use -->
+                <div class="row mt-5 text-center">
+                    <div class="col">
+                        <h2 class="fw-bold fs-1">SOFTWARE I USE</h2>
+                    </div>
+                </div>
+
+                <div class="row mt-3 justify-content-center align-items-center text-center g-4 gap-5 mb-5">
+                    <div class="col-auto">
+                        <img src="img/Visual Studio Logo.png" alt="Visual Studio" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Unity Logo.png" alt="Unity" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Unreal Engine Logo.png" alt="Unreal Engine" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/GitHub Logo.png" alt="GitHub" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Houdini Logo.png" alt="Houdini" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Maya Logo.png" alt="Maya" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Substance Painter Logo.png" alt="Substance Painter" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Substance Designer Logo.png" alt="Substance Designer" class="software-icon">
+                    </div>
+                    <div class="col-auto">
+                        <img src="img/Photoshop Logo.png" alt="Photoshop" class="software-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Experience-->
+    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="experience">
+
+        <div class="container text-center mb-5">
+            <h1 class="fw-bold projects-title">EXPERIENCE</h1>
+        </div>
+    </section>
+
+    <!--Projects-->
+    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="projects">
+
+        <div class="container text-center mb-5">
+            <h1 class="fw-bold projects-title">PROJECTS</h1>
+        </div>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-auto d-flex gap-5">
+                <!-- Botón 1 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab1" autocomplete="off" checked>
+                    <label class="btn btn-light" for="tab1" onclick="mostrarProyecto(1)">01</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 2 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab2" autocomplete="off">
+                    <label class="btn btn-light" for="tab2" onclick="mostrarProyecto(2)">02</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 3 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab3" autocomplete="off">
+                    <label class="btn btn-light" for="tab3" onclick="mostrarProyecto(3)">03</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 4 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab4" autocomplete="off">
+                    <label class="btn btn-light" for="tab4" onclick="mostrarProyecto(4)">04</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 5 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab5" autocomplete="off">
+                    <label class="btn btn-light" for="tab5" onclick="mostrarProyecto(5)">05</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 6 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab6" autocomplete="off">
+                    <label class="btn btn-light" for="tab6" onclick="mostrarProyecto(6)">06</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 7 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab7" autocomplete="off">
+                    <label class="btn btn-light" for="tab7" onclick="mostrarProyecto(7)">07</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 8 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio" id="tab8" autocomplete="off">
+                    <label class="btn btn-light" for="tab8" onclick="mostrarProyecto(8)">08</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!--404 Not Found-->
+            <div class="proyecto" id="proyecto1">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">01. 404 Not Found</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer1" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators1" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1" aria-label="1 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2" aria-label="1 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="3" aria-label="1 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="4" aria-label="1 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="5" aria-label="1 Slide 6"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/404 Not Found/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/404 Not Found/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/404 Not Found/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/404 Not Found/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/404 Not Found/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/404 Not Found/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 6">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🎬 Video -->
+                        <div id="videoContainer1" class="ratio ratio-16x9 d-none rounded-4 overflow-hidden shadow-lg mb-3">
+                            <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                                <source src="projects/404 Not Found/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- 🔳 Botones Video / Images pegados -->
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarVideo(1)">Video</button>
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarCarrusel(1)">Images</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Week</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                A missing game, a glitchy world, and chaotic minigames inspired by
+                                <strong>Windows XP</strong>. Recover the lost pieces of your game before the system deletes you.
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">First Person</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Action</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Full Body Animations</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Single Player</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/404notfound', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Galactic Overdrive-->
+            <div class="proyecto" id="proyecto2">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">02. Galactic Overdrive</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer2" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators2" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="2 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="2 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="2 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="2 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="4" aria-label="2 Slide 5"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/Galactic Overdrive/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="2 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Galactic Overdrive/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="2 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Galactic Overdrive/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="2 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Galactic Overdrive/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="2 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Galactic Overdrive/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="2 Slide 5">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 1</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity, Photon Fusion 2</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                In this <strong> round-based FPS co-op game, 1 to 4 players </strong> are trapped on a sci-fi spaceship, fighting through relentless waves of aggressive robots. With each round, the robotic enemies grow stronger, and teamwork is the key to surviving and escaping the relentless onslaught.
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Multiplayer Online</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Client Host Architecture</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Replication</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Prediction</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">First Person Shooter</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">True First Person</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/galactic-overdrive', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Food in the Wall-->
+            <div class="proyecto" id="proyecto3">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">03. Food in the Wall</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer3" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators3" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="3 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="3 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="3 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="3" aria-label="3 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="4" aria-label="3 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="5" aria-label="3 Slide 6"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/Food In The Wall/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Food In The Wall/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Food In The Wall/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Food In The Wall/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Food In The Wall/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Food In The Wall/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="1 Slide 6">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 4 Days</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                Have you ever wondered what our everyday food is doing when we are not looking? A game show, of course! In this game, you will control a team of fruits and veggies that must try to SCALE themselves through crazy-shaped holes in giant cutting boards moving towards you. <br> <strong>Made for the GMTK Game Jam 2024 (Theme: Built to Scale)</strong>
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Third Person</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Party Game</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Food Characters</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/food-in-the-wall', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Laundry Loops-->
+            <div class="proyecto" id="proyecto4">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">04. Laundry Loops</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer4" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators4" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="4 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="4 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="4 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="3" aria-label="4 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="4" aria-label="4 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="5" aria-label="4 Slide 6"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="6" aria-label="4 Slide 7"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/Laundry Loops/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 6">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Laundry Loops/Screenshot_7.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="4 Slide 7">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🎬 Video -->
+                        <div id="videoContainer4" class="ratio ratio-16x9 d-none rounded-4 overflow-hidden shadow-lg mb-3">
+                            <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                                <source src="projects/Laundry Loops/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- 🔳 Botones Video / Images pegados -->
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarVideo(4)">Video</button>
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarCarrusel(4)">Images</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 4 Days</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                Ever wondered what happens inside your washing machine when you’re not looking? Turns out… it’s a high-stakes obstacle course! In Laundry Loops, you play as a charismatic sock who just wanted a peaceful day until a careless shove sends you tumbling into a looping nightmare of rinse, spin, and chaos. Dodge rogue t-shirts, slippery underwear, and detergent waves as you fight to survive a cycle of washing phases like deep soak, bleach storm, and turbo dry. Will you escape the loop, or become laundry lint forever?
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Third Person</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Endless Runner</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Party Game</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Single Player</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/laundry-loops', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--T.I.M.-->
+            <div class="proyecto" id="proyecto5">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">05. T.I.M.</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer5" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators5" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="5 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="5 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="5 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="3" aria-label="5 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="4" aria-label="5 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="5" aria-label="5 Slide 6"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="6" aria-label="5 Slide 7"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="7" aria-label="5 Slide 8"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/T.I.M/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 6">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_7.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 7">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/T.I.M/Screenshot_8.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="5 Slide 8">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Week</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                T.I.M. is a high-octane 3D action-platformer where every second is a resource. You’re a robot with an internal self-destruct module on a 30-second timer, and your survival depends on grabbing shimmering energy crystals scattered through a fractured canyon and taking down enemy bots to recharge your battery. Master parkour, collect energy sources to extend your runtime, and balance risk vs. reward: ¿Slow and safe, or fast and dangerous?
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">3D Top Down</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Action-Platformer</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Sci-Fi</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/tim', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Houdini LXM TechArt Worlds-->
+            <div class="proyecto" id="proyecto6">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">06. Houdini LXM TechArt Worlds</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer6" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators6" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="6 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1" aria-label="6 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="6 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="3" aria-label="6 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="4" aria-label="6 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="5" aria-label="6 Slide 6"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="6" aria-label="6 Slide 7"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="7" aria-label="6 Slide 8"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="8" aria-label="6 Slide 9"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 6">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_7.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 7">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_8.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 8">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Houdini LXM Techart Worlds/Screenshot_9.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="6 Slide 9">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🎬 Video -->
+                        <div id="videoContainer6" class="ratio ratio-16x9 d-none rounded-4 overflow-hidden shadow-lg mb-3">
+                            <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                                <source src="projects/Houdini LXM Techart Worlds/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- 🔳 Botones Video / Images pegados -->
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarVideo(6)">Video</button>
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarCarrusel(6)">Images</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Environment Technical Artist</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 1</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Week</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Houdini, Unreal Engine</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                I participated in the TechArt Worlds 2025 Challenge, an international competition focused on procedural generation and 3D technical art using Houdini. I achieved 7th place out of more than 30 participants, standing out for my sci-fi procedural project and my technical development throughout the challenge.
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Procedural Modeling</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Sci-Fi Environment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--VoidShift-->
+            <div class="proyecto" id="proyecto7">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">07. VoidShift</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer7" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators7" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="0" class="active" aria-current="true" aria-label="7 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="1" aria-label="7 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="2" aria-label="7 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="3" aria-label="7 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="4" aria-label="7 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="5" aria-label="7 Slide 6"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/VoidShift/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/VoidShift/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/VoidShift/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/VoidShift/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/VoidShift/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/VoidShift/Screenshot_6.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="7 Slide 6">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🎬 Video -->
+                        <div id="videoContainer7" class="ratio ratio-16x9 d-none rounded-4 overflow-hidden shadow-lg mb-3">
+                            <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                                <source src="projects/VoidShift/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- 🔳 Botones Video / Images pegados -->
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarVideo(7)">Video</button>
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarCarrusel(7)">Images</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer, 3D Artist</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 3 Months</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                Voidshift is a first-person game where players must survive endless waves of enemies while trying to escape through an interdimensional portal. To succeed, they need to power up several <strong>interdimensional engines</strong> that energize the portal, blending strategy, action, and resource management. <br> The game features animated weapons, a crafting table for building defenses and items, and automated turrets.
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">First Person Shooter</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Arena Survival</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Round Based Gameplay</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Single Player</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://lucasgaston.itch.io/voidshift', '_blank')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Stylized Binoculars-->
+            <div class="proyecto" id="proyecto8">
+                <div class="row align-items-center">
+                    <h1 class="pb-3">08. Stylized Binoculars</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 🎠 Video y Carrusel -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+
+                        <!-- 🎠 Carrusel -->
+                        <div id="carouselContainer8" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                            <div id="carouselExampleIndicators8" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="0" class="active" aria-current="true" aria-label="8 Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="1" aria-label="8 Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="2" aria-label="8 Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="3" aria-label="8 Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="4" aria-label="8 Slide 5"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="5" aria-label="8 Slide 6"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="6" aria-label="8 Slide 7"></button>
+                                </div>
+
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active">
+                                        <img src="projects/Stylized Binoculars/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_6.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 6">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="projects/Stylized Binoculars/Screenshot_7.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="8 Slide 7">
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🎬 Video -->
+                        <div id="videoContainer8" class="ratio ratio-16x9 d-none rounded-4 overflow-hidden shadow-lg mb-3">
+                            <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                                <source src="projects/Stylized Binoculars/video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- 🔳 Botones Video / Images pegados -->
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarVideo(8)">Video</button>
+                                <button type="button" class="btn btn-sm btn-dark text-white px-4" onclick="mostrarCarrusel(8)">Images</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: 3D Artist</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 1</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 2 Days</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Maya, Substance Painter, Marmoset Toolbag, Blender</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small opacity-75">
+                            <p class="fs-5">
+                                I wanted to test my 3D Skills in the shortest time possible. So this is my game ready Stylized binoculars made in 2 days only. Done highpoly, then retopo and low poly with 6.462 tris and 1 texture set in 4k res. Hand painted only in albedo map.
+                            </p>
+                        </div>
+
+                        <!-- 🏷️ Tags -->
+                        <div class="mt-4">
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Stylized 3D Model</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Clean Topology</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light me-2">Optimized</span>
+                            <span class="badge rounded-pill bg-transparent border border-light text-light">Game Ready Asset</span>
+                        </div>
+
+                        <!-- 🎮 Botón Play -->
+                        <div class="d-flex justify-content-center justify-content-md-start mt-4">
+                            <button type="button" class="btn btn-sm btn-dark text-white px-5" onclick="window.open('https://www.artstation.com/artwork/299QNy', '_blank')">Artstation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!--CONTACT ME-->
+    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white; font-family: 'Open Sans', sans-serif;" id="contactme">
+
+      <!--  <div class="container text-center mb-5">
+            <h1 class="fw-bold projects-title">EXPERIENCE</h1>
+        </div>-->
+
+        <div class="container text-center mb-5">
+            <h1 class="fw-bold projects-title" style="font-size: 5rem;">CONTACT ME</h1>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center g-4">
+                <!-- Email -->
+                <div class="col-auto">
+                    <a href="mailto:lucasgaston2003@gmail.com" class="contact-icon d-flex align-items-center justify-content-center">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="col-auto">
+                    <a href="https://wa.me/541169028377" target="_blank" class="contact-icon d-flex align-items-center justify-content-center">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="col-auto">
+                    <a href="https://www.linkedin.com/in/lucas-symeonides/" target="_blank" class="contact-icon d-flex align-items-center justify-content-center">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+
+                <!-- Artstation -->
+                <div class="col-auto">
+                    <a href="https://lucasgaston.artstation.com/" target="_blank" class="contact-icon d-flex align-items-center justify-content-center">
+                        <img src="img/Artstation Logo 2.png" alt="Artstation" class="software-icon">
+                    </a>
+                </div>
+
+                <!-- Itchio -->
+                <div class="col-auto">
+                    <a href="https://lucasgaston.itch.io/" target="_blank" class="contact-icon d-flex align-items-center justify-content-center">
+                        <img src="img/Itchio Logo 2.png" alt="Itchio" class="software-icon">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Texto adicional -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="small opacity-75" style="font-size: 1.1rem; font-family: Montserrat;">
+                        Feel free to reach out for collaborations, job opportunities, or just to say hi! I usually respond quickly :)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            mostrarProyecto(1)
+        });
+
+        function mostrarVideo(index) {
+            const video = document.querySelector('#videoContainer video');
+            document.getElementById(`carouselContainer${index}`).classList.add('d-none');
+            document.getElementById(`videoContainer${index}`).classList.remove('d-none');
+            video.play();
+        }
+
+        function mostrarCarrusel(index) {
+            const video = document.querySelector('#videoContainer video');
+            document.getElementById(`videoContainer${index}`).classList.add('d-none');
+            document.getElementById(`carouselContainer${index}`).classList.remove('d-none');
+            video.pause();
+        }
+
+
+        function mostrarProyecto(index) {
+            // Pausa y reinicia todos los videos
+            document.querySelectorAll('.proyecto video').forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+
+            // Oculta todos los proyectos
+            document.querySelectorAll('.proyecto').forEach(div => {
+                div.classList.add('d-none');
+            });
+
+            // Muestra el proyecto seleccionado
+            const proyectoActivo = document.getElementById(`proyecto${index}`);
+            if (proyectoActivo) {
+                proyectoActivo.classList.remove('d-none');
+
+                // Contenedores de video y carrusel
+                const videoContainer = document.getElementById(`videoContainer${index}`);
+                const carouselContainer = document.getElementById(`carouselContainer${index}`);
+                const video = videoContainer ? videoContainer.querySelector('video') : null;
+
+                if (video) {
+                    // Muestra video y oculta carrusel
+                    if (carouselContainer) carouselContainer.classList.add('d-none');
+                    videoContainer.classList.remove('d-none');
+                    video.play();
+                } else if (carouselContainer) {
+                    // Si no hay video, muestra carrusel
+                    carouselContainer.classList.remove('d-none');
+                }
+
+                // Reinicia el carousel a la primera slide
+                if (carouselContainer) {
+                    const carouselEl = carouselContainer.querySelector('.carousel');
+                    if (carouselEl) {
+                        const carousel = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl);
+                        carousel.to(0); // Va a la primera slide
+                    }
+                }
+            }
+
+            // Actualiza flechita visual
+            document.querySelectorAll('.arrow').forEach(a => a.classList.add('d-none'));
+            const activeArrow = document.querySelector(`#tab${index}`).parentElement.querySelector('.arrow');
+            if (activeArrow) activeArrow.classList.remove('d-none');
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-
 </html>

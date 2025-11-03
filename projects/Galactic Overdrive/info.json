@@ -1,0 +1,17 @@
+{
+  "title": "Galactic Overdrive",
+  "role": "Programmer",
+  "team size": 1,
+  "project duration": "1 Month",
+  "toolset": "Unity, Photon Fusion 2",
+  "logline": "In this round-based FPS co-op game, 1 to 4 players are trapped on a sci-fi spaceship, fighting through relentless waves of aggressive robots. With each round, the robotic enemies grow stronger, and teamwork is the key to surviving and escaping the relentless onslaught.",
+  "itchio": "https://lucasgaston.itch.io/galactic-overdrive",
+  "tags": [
+    "Multiplayer Online",
+    "Client Host Architecture",
+    "Replication",
+    "Prediction",
+    "First Person Shooter",
+    "True First Person"
+  ]
+}

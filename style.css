@@ -1,0 +1,247 @@
+@font-face {
+  font-family: 'MiFuente';
+  src: url('font/Fontspring-DEMO-freigeist-bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: 999 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar a {
+  color: white !important;
+  font-size: 30px;
+}
+
+.navbar li {
+    font-weight: 300;
+}
+
+.navbar li a {
+  position: relative;
+  text-decoration: none; 
+  padding-bottom: 5px;
+}
+
+.navbar li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;           
+  height: 3px;         
+  background: linear-gradient(to right, #ff02a0, #ff13da, #a159f0, #00a2fe);
+  transition: width 0.3s;
+}
+
+
+.navbar li a:hover::after {
+  width: 100%; 
+}
+
+header.fondo {
+    min-height: 100vh;
+}
+
+.fondo {
+    background-image: url(img/Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.inicio {
+    height: 1000px;
+}
+
+.inicio h1 {
+    font-family: 'MiFuente';
+    margin-bottom: 0.2rem;
+    line-height: 60px;
+    font-size: 70px;
+}
+
+.inicio {
+  height: 1000px;
+}
+
+.texto {
+  margin-top: 610px;
+  text-align: left;
+  padding-left: 0; 
+}
+
+.gradient-border {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 1000px;
+  color: white;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 4px;
+  border-radius: 1000px;
+  background: linear-gradient(90deg, #ff02a0, #ff13da, #a159f0, #00a2fe);
+    mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+/* Botón Get Resume */
+.gradient-border-large {
+    position: relative;
+    display: inline-block;
+    padding: 16px/* 30px*/;
+    border-radius: 1000px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+    background: transparent;
+    z-index: 1;
+}
+
+.gradient-border-large::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1000px;
+    padding: 5px;
+    background: linear-gradient(90deg, #ff02a0, #a159f0, #00a2fe);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.gradient-border-large:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Solo para el ícono dentro del botón Get Resume */
+.resume-icon {
+    font-size: 1.4rem; /* agranda el ícono */
+    margin-left: 12px; /* espacio a la izquierda del texto */
+    line-height: 1; /* alinea verticalmente */
+}
+
+/* Íconos redes */
+.social-icon {
+    height: 48px; /* un poco más grande para igualar altura del texto */
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.software-icon {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.software-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.lang-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-toggle-img {
+  height: 50px; /* ajustá según tu imagen */
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.lang-toggle-img:hover {
+  transform: scale(1.05);
+}
+
+.bi {
+  padding-right: 1rem;
+}
+
+.projects-title {
+    font-size: 150px;
+    font-family: "MiFuente", sans-serif; /* reemplazá por el nombre real */
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+/* Font propia */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Mostrar la flecha solo si el radio está seleccionado */
+.btn-check:checked + .btn-light + .arrow {
+    display: block !important;
+    margin-top: -30px;
+    padding-left: 15px;
+    font-size: 30px;
+    color: #fff;
+}
+
+/* Estilos de los botones ya existentes */
+.btn-light {
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    background-color: transparent;
+    border: none;
+    transition: all 0.2s;
+}
+
+    .btn-light:hover,
+    .btn-light:focus,
+    .btn-light:active {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+.btn-check:checked + .btn-light {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.contact-icon {
+    font-size: 4rem; /* tamaño del icono */
+    color: white;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
+    color: #fff; /* color al hover, puedes cambiarlo */
+}
