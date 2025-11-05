@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+* {
+    max-width: 100%;
+}
+
 body {
     background: /* Capa superior: degrade negro a transparente */
     linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
@@ -59,6 +63,7 @@ header {
 .navbar-collapse .nav-link {
     display: inline-block;
     width: auto;
+
 }
 
 .navbar a {
@@ -93,6 +98,28 @@ header {
 
 .navbar li.lang-item a::after {
     content: none; /* quita el subrayado */
+
+}
+
+/* Solo para mobile: items en columna y alineados a la izquierda */
+@media (max-width: 1399.98px) {
+    .navbar-collapse .navbar-nav {
+        flex-direction: column !important; /* items en columna */
+        align-items: flex-start !important; /* alineación a la izquierda */
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    .navbar-collapse .lang-item {
+        align-self: flex-start !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        padding-left: 1rem !important; /* opcional: igual que los demás links */
+    }
+
+        .navbar-collapse .lang-item a {
+            display: inline-block !important;
+        }
 }
 
 header.fondo {
