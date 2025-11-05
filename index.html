@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-4">
-                            <a class="nav-link active" aria-current="page" href="#aboutme">About me</a>
+                            <a class="nav-link active" aria-current="page" href="#aboutme">About Me</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="#experience">Experience</a>
@@ -30,7 +30,7 @@
                             <a class="nav-link" href="#projects">Projects</a>
                         </li>
                         <li class="nav-item px-4">
-                            <a class="nav-link" href="#contactme">Contact me</a>
+                            <a class="nav-link" href="#contactme">Contact Me</a>
                         </li>
                         <li class="nav-item px-4 pt-2 lang-item">
                             <img src="img/Language_EN.png" alt="Cambiar idioma" class="lang-toggle-img">
@@ -73,7 +73,7 @@
     </header>
 
     <!--About Me-->
-    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="aboutme">
+    <section class="py-5" id="aboutme" style="color: white;">
         <div class="container text-center mb-5">
             <h1 class="fw-bold projects-title">ABOUT ME</h1>
         </div>
@@ -132,56 +132,934 @@
                     </div>
                 </div>
 
+                <hr class="divider">
+
                 <!-- Nueva sección: Software I Use -->
                 <div class="row mt-5 text-center">
                     <div class="col">
-                        <h2 class="fw-bold fs-1">SOFTWARE I USE</h2>
+                        <h2 class="fw-bold fs-1" style="filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));">SOFTWARE I USE</h2>
                     </div>
                 </div>
 
                 <div class="row mt-3 justify-content-center align-items-center text-center g-4 gap-5 mb-5">
                     <div class="col-auto">
-                        <img src="img/Visual Studio Logo.png" alt="Visual Studio" class="software-icon">
+                        <img src="img/Visual Studio Logo.png" alt="Visual Studio" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Unity Logo.png" alt="Unity" class="software-icon">
+                        <img src="img/Unity Logo.png" alt="Unity" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Unreal Engine Logo.png" alt="Unreal Engine" class="software-icon">
+                        <img src="img/Unreal Engine Logo.png" alt="Unreal Engine" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/GitHub Logo.png" alt="GitHub" class="software-icon">
+                        <img src="img/GitHub Logo.png" alt="GitHub" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Houdini Logo.png" alt="Houdini" class="software-icon">
+                        <img src="img/Houdini Logo.png" alt="Houdini" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Maya Logo.png" alt="Maya" class="software-icon">
+                        <img src="img/Maya Logo.png" alt="Maya" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Substance Painter Logo.png" alt="Substance Painter" class="software-icon">
+                        <img src="img/Substance Painter Logo.png" alt="Substance Painter" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Substance Designer Logo.png" alt="Substance Designer" class="software-icon">
+                        <img src="img/Substance Designer Logo.png" alt="Substance Designer" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                     <div class="col-auto">
-                        <img src="img/Photoshop Logo.png" alt="Photoshop" class="software-icon">
+                        <img src="img/Photoshop Logo.png" alt="Photoshop" class="software-icon" style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <hr class="divider">
     <!--Experience-->
-    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="experience">
+    <section class="py-5" style="color: white;" id="experience">
 
         <div class="container text-center mb-5">
             <h1 class="fw-bold projects-title">EXPERIENCE</h1>
         </div>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-auto d-flex gap-5">
+                <!-- Botón 1 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab1" autocomplete="off" checked>
+                    <label class="btn btn-light" for="experiencetab1" onclick="mostrarExperiencia(1)">01</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 2 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab2" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab2" onclick="mostrarExperiencia(2)">02</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 3 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab3" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab3" onclick="mostrarExperiencia(3)">03</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 4 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab4" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab4" onclick="mostrarExperiencia(4)">04</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 5 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab5" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab5" onclick="mostrarExperiencia(5)">05</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 6 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab6" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab6" onclick="mostrarExperiencia(6)">06</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+
+                <!-- Botón 7 -->
+                <div class="d-flex flex-column align-items-center">
+                    <input type="radio" class="btn-check" name="tab-radio-experience" id="experiencetab7" autocomplete="off">
+                    <label class="btn btn-light" for="experiencetab7" onclick="mostrarExperiencia(7)">07</label>
+                    <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!--Velvet Bar-->
+            <div class="experience" id="experience1">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Velvet Bar</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: 3D Artist, Lightning, Post Processing, Final Lookdev</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 2</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unreal Engine, Substance Painter, Maya, 3DSMax</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>Velvet Bar is a virtual production environment developed in Unreal Engine 5</strong>, designed for a film studio equipped with a large LED volume, similar to those used in The Mandalorian and El Eternauta.
+                                <br><br>The scene was created collaboratively, focusing on achieving the most cinematic atmosphere through a mix of custom-made and scanned assets, realistic baked lighting, texturing.
+                                This project involved a full game-ready asset pipeline — modeling and optimizing assets in Maya, texturing with Substance 3D Painter and Megascans, and implementing them in Unreal Engine for real-time performance during film shoots.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Velvet Bar/Thumbnail 1.jpeg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Velvet Bar/Video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5 pt-3">
+                        <p class="fs-5">
+                            <strong>Lighting</strong> this scene was particularly interesting, since it takes place indoors at night. It was a must to go with <strong>baked lighting</strong> as we needed to place a lot of light sources together. Reflection captures, lightmass settings, and post-processing were carefully adjusted to mimic the feel of a real bar interior, while keeping realtime optimized for on-set performance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer1" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators1" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 1 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="1" aria-label="Experience 1 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="2" aria-label="Experience 1 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="3" aria-label="Experience 1 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="4" aria-label="Experience 1 Slide 5"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="5" aria-label="Experience 1 Slide 6"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide-to="6" aria-label="Experience 1 Slide 7"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Velvet Bar/Screenshot_1.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_2.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_3.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_4.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_5.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 5">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_6.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 6">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Velvet Bar/Screenshot_7.jpeg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 1 Slide 7">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators1" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5 pt-3">
+                        <p class="fs-5">
+                            Since the project was intended for <strong>real-time virtual production</strong>, performance optimization was a top priority. While Lumen and Nanite are the trend in modern Unreal Engine workflows, we decided to disable them to guarantee optimal performance at the cost of more development time. Multiple assets were baked from high-poly to low-poly models, preserving the quality of details while reducing polygon count. Textures from Megascans were used and optimized its texture size depending on the objects screen space.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Velvet Bar/Video2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!--Brochure Digital Interactivo (Stand Version)-->
+            <div class="experience" id="experience2">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Interactive Digital Brochure (Stand Version)</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Full project management, Lead Unreal Programmer, Tools Developer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 2</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 5 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unreal Engine, Photoshop, Maya, RESTful APIs</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>Interactive Digital Brochure</strong> is an <strong>architectural visualization project developed in Unreal Engine 5</strong>, designed to showcase real estate developments in an interactive and immersive way.
+                                The platform integrates the <strong>Google Maps API</strong> to display 3D map tiles allowing users to explore all the company’s projects within their <strong>real-world geographical context.</strong>
+                                <br><br>This version is a <strong>simplified adaptation of the full experience</strong> featured in the following project. It was designed to be used on a large touchscreen display, as shown in the <strong>final video during an important event for Narvaez Real Estate.</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Brochure Digital Interactivo (Stand Version)/Thumbnail 1.jpeg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Brochure Digital Interactivo (Stand Version)/Video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-3 mb-3">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5">
+                        <p class="fs-5">
+                            This project makes use of the <strong>Cesium for Unreal</strong> plugin, which enables real-world geographic visualization directly within <strong>Unreal Engine</strong>.
+                            Through Cesium’s integration with <strong>Google’s 3D Tiles</strong>, the platform streams accurate satellite imagery, terrain data, and photogrammetry-based 3D models in real time.
+                            This allows <strong>real-world locations to be projected seamlessly into the digital environment</strong>, ensuring that each property or development is placed exactly where it exists in reality, while maintaining <strong>high visual fidelity and performance</strong> for interactive navigation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer2" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators2" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 2 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="1" aria-label="Experience 2 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="2" aria-label="Experience 2 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="3" aria-label="Experience 2 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="4" aria-label="Experience 2 Slide 5"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="5" aria-label="Experience 2 Slide 6"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide-to="6" aria-label="Experience 2 Slide 7"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 5">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_6.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 6">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo (Stand Version)/Screenshot_7.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 2 Slide 7">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators2" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="col-12 col-md-8 mb-4 mb-md-0 position-relative">
+                        <div class="fs-5 pt-3">
+                            <p class="fs-5">
+                                The main purpose of this application was to allow clients to explore <strong>architectural developments that had not yet been built in real life</strong>.
+                                Through this project, users could <strong>visualize and orbit around future constructions</strong> as if they already existed, experiencing their real-world context in an <strong>interactive virtual environment</strong>.
+                                <br><br>
+                                Starting from <strong>architectural blueprints</strong> and <strong>static renders</strong>, we had to <strong>model each project to real-world scale</strong>, apply <strong>accurate texturing</strong>, and position every element inside <strong>Unreal Engine</strong> at its <strong>exact geographic location</strong>.
+                                This process ensured that every development was represented with both <strong>artistic fidelity</strong> and <strong>spatial precision</strong>.
+                                <br><br>
+                                The platform is also connected to a <strong>Content Management System (CMS)</strong> that enables <strong>real-time editing and integration of property data</strong>.
+                                Through this system, the client can easily <strong>update images, videos, floor plans, number of bedrooms, square footage, and other key information</strong> without requiring any technical knowledge or direct access to Unreal Engine.
+                                This workflow ensures a <strong>dynamic and scalable solution</strong> where the content remains <strong>accurate, up to date, and easily manageable</strong> as new developments are added or existing ones are modified.
+                                <br><br>
+                                This project also features <strong>Pixel Streaming integration</strong> in <strong>Unreal Engine</strong>, hosted on <strong>Eagle3D’s website</strong>.
+                                This technology allows users to <strong>access the experience from any device</strong> — even without a <strong>high-end PC</strong> — by <strong>streaming the rendered content directly from the cloud</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    <!--🎬 Video-->
+                    <div class="col-12 col-md-4 mb-4 mb-md-0 position-relative">
+                        <div class="experiencevideoContainer rounded-4 overflow-hidden shadow-lg mb-3" style="position: relative; width: 100%; padding-top: 177.78%;">
+                            <video autoplay muted loop playsinline controls
+                                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                                <source src="work/Brochure Digital Interactivo (Stand Version)/Video2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Brochure Digital Interactivo (WEB Version)-->
+            <div class="experience" id="experience3">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Interactive Digital Brochure <br>(WEB Version)</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Full project management, Lead Unreal Programmer, Tools Developer</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 2</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 5 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unreal Engine, Photoshop, Maya, RESTful APIs</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                This version of the <strong>Interactive Digital Brochure</strong> was developed <strong>in parallel</strong> to the previous one, serving as a <strong>more complete and feature-rich adaptation</strong> of the same concept.
+                                <br><br>
+                                It introduces <strong>advanced filters</strong> such as <strong>price, property type, area, location, square footage, number of rooms and many more</strong>, allowing users to <strong>narrow down their search and explore properties more precisely</strong>.
+                                <br><br>
+                                Unlike the version designed for guided presentations, this one was <strong>created for individual clients</strong>, providing them with <strong>full control over their experience</strong> and the ability to <strong>freely explore and discover developments of personal interest</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Brochure Digital Interactivo/Thumbnail 1.jpeg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Brochure Digital Interactivo/Video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-3 mb-3">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5">
+                        <p class="fs-5">
+                            This version not only includes <strong>the company’s own developments</strong> but also integrates <strong>the entire real estate database available to Narvaez</strong>, featuring <strong>properties for sale and rent</strong>.
+                            This expansion allows users to <strong>access a much broader catalog</strong> and explore all available options within a single, unified platform.
+                            <br><br>
+                            Additionally, this version introduces a <strong>contextual layer of nearby points of interest</strong>, such as <strong>gas stations, schools, banks, and supermarkets</strong>, as well as <strong>important nearby roads</strong> like <strong>main avenues and highway access routes</strong>.
+                            This provides users with a <strong>more complete understanding of each property’s surroundings</strong> and its <strong>real-world connectivity</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer3" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators3" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 3 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="1" aria-label="Experience 3 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="2" aria-label="Experience 3 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="3" aria-label="Experience 3 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="4" aria-label="Experience 3 Slide 5"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="5" aria-label="Experience 3 Slide 6"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide-to="6" aria-label="Experience 3 Slide 7"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 5">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_6.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 6">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Brochure Digital Interactivo/Screenshot_7.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 3 Slide 7">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators3" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Casaloft-->
+            <div class="experience" id="experience4">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Casaloft</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer, 3D Artist, Lightning, Optimization, Post Processing</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 4 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unreal Engine, Substance Painter, Maya, 3DSMax, Megascans</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>Casaloft</strong> is an <strong>architectural visualization project developed in Unreal Engine 5</strong>.
+                                This interactive viewer allows users to <strong>explore the development in first-person, third-person, or drone mode</strong>, offering a fully immersive experience.
+                                <br><br>
+                                The project provides a <strong>detailed and realistic representation of one of Narvaez’s real estate developments</strong>, allowing potential clients to <strong>walk through and experience the project virtually before construction is completed</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Casaloft/Thumbnail 1.jpg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Casaloft/Video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5 pt-3">
+                        <p class="fs-5">
+                            It also includes a <strong>dynamic time-of-day system</strong> that simulates the <strong>real position of the sun and moon based on the actual geographic location</strong>.
+                            Users can <strong>freely control the time of day</strong>, adjusting the lighting and atmosphere in real-time to visualize the project under different conditions.
+                            Additionally, an <strong>elegant interior lighting system</strong> automatically turns lights on or off depending on the time of day, enhancing immersion and realism throughout the experience.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer4" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators4" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 4 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="1" aria-label="Experience 4 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="2" aria-label="Experience 4 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="3" aria-label="Experience 4 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="4" aria-label="Experience 4 Slide 5"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="5" aria-label="Experience 4 Slide 6"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="6" aria-label="Experience 4 Slide 7"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="7" aria-label="Experience 4 Slide 8"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="8" aria-label="Experience 4 Slide 9"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide-to="9" aria-label="Experience 4 Slide 10"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Casaloft/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 5">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 6">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_7.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 7">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_8.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 8">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_9.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 9">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Casaloft/Screenshot_10.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 4 Slide 10">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators4" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-3 mb-3">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5">
+                        <p class="fs-5">
+                            On the technical side, <strong>Casaloft makes extensive use of Unreal Engine 5’s latest technologies</strong> such as <strong>Lumen</strong> for real-time global illumination, <strong>Nanite</strong> for highly detailed geometry without performance loss, and <strong>Megalights</strong> for efficient lighting workflows.
+                            <br><br>
+                            These tools allow us to <strong>maintain a fast iteration time during development</strong> while still achieving <strong>cinematic visual quality</strong>.
+                            As a result, the experience delivers <strong>high-fidelity lighting, reflections, and detail levels</strong> that load and run smoothly in just a few seconds.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Casaloft/Video2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Mountain VR Bike-->
+            <div class="experience" id="experience5">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Mountain VR Bike</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Programmer, Optimization</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 2</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Unity, Maya, 3DSMax</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>Developed in Unity for medical centers</strong>, this virtual reality application offers an <strong>immersive and realistic evaluation experience</strong> compatible with <strong>Oculus Quest 2 and 3</strong>.
+                                It features <strong>multiple dynamic environments</strong>, <strong>incline simulation</strong>, and <strong>NPC cyclists</strong> to enhance realism and engagement.
+                                <br><br>
+                                The experience includes <strong>three distinct phases</strong> — <strong>Effort</strong>, <strong>Recovery</strong>, and <strong>Final Descent</strong> — each designed to simulate real physical performance conditions.
+                                With <strong>advanced optimization techniques</strong>, the project ensures <strong>smooth and high-quality performance</strong> on standalone VR devices while maintaining strong visual fidelity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Mountain Bike VR Experience/Thumbnail 1.jpg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Mountain Bike VR Experience/Video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5 pt-3">
+                        <p class="fs-5">
+                            <strong>Optimization was a crucial challenge</strong> in this project, as developing a <strong>VR application for a standalone headset</strong> that runs smoothly without the support of a powerful PC is no easy task.
+                            To achieve optimal performance on devices like the Oculus Quest 2 and 3, we implemented advanced optimization strategies such as <strong>object pooling</strong> to efficiently manage active elements and memory usage.
+                            <br><br>
+                            The entire playable route was <strong>divided into segmented zones</strong>, each with <strong>entry and exit transitions</strong> and <strong>2 to 4 intermediate variations</strong> to avoid repetition and maintain visual diversity.
+                            Furthermore, a <strong>dynamic instance selector system</strong> was developed to intelligently alternate assets, ensuring a <strong>smooth, natural, and immersive experience</strong> within the constraints of a standalone VR headset.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer5" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators5" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 5 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide-to="1" aria-label="Experience 5 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide-to="2" aria-label="Experience 5 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide-to="3" aria-label="Experience 5 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide-to="4" aria-label="Experience 5 Slide 5"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Mountain Bike VR Experience/Screenshot_1.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 5 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Mountain Bike VR Experience/Screenshot_2.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 5 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Mountain Bike VR Experience/Screenshot_3.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 5 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Mountain Bike VR Experience/Screenshot_4.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 5 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Mountain Bike VR Experience/Screenshot_5.jpg" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 5 Slide 5">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators5" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center">
+                    <!-- 📋 Info del proyecto -->
+                    <div class="fs-5 pt-3">
+                        <p class="fs-5">
+                            <strong>Last but not least, careful optimization of foliage</strong> was essential. This environment features <strong>dense forests and numerous grass planes</strong>, so we had to meticulously manage <strong>poly count and draw calls</strong> to keep performance optimal.
+                            <strong>If performance drops, it can cause nausea</strong> for users, which could possibly lead them to exit the experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Causeverse-->
+            <div class="experience" id="experience6">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Causeverse</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: 3D Artist, Optimization</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 4</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 1 Month</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Blender, Maya, Substance Painter</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>We acted as an outsourcing team</strong>, supporting another company by creating and modeling the entire WebGL e-commerce experience. <strong>Our role was to faithfully follow the client’s references</strong> while respecting strict performance and size limitations.
+                                <br><br>
+                                Every asset, from meshes to textures, was carefully developed or optimized to stay within the <strong>tris, draw calls, VRAM, and disk size budgets</strong>. <strong>Attention to detail</strong> ensured that the final product matched the client’s vision while running smoothly on a wide range of devices.
+                                <br><br>
+                                By handling the asset creation, optimization, and integration, <strong>we delivered a fully functional and highly optimized 3D e-commerce environment</strong> ready for web deployment, providing an immersive experience for users without requiring high-end hardware.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Causeverse/Thumbnail 1.jpg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-5">
+                    <!--🎬 Video-->
+                    <div class="experiencevideoContainer ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <video autoplay muted loop playsinline controls class="w-100 h-100" style="object-fit: cover;">
+                            <source src="work/Causeverse/Video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer6" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators6" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 6 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="1" aria-label="Experience 6 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="2" aria-label="Experience 6 Slide 3"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="3" aria-label="Experience 6 Slide 4"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="4" aria-label="Experience 6 Slide 5"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="5" aria-label="Experience 6 Slide 6"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="6" aria-label="Experience 6 Slide 7"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide-to="7" aria-label="Experience 6 Slide 8"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Causeverse/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 4">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 5">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 6">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_7.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 7">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Causeverse/Screenshot_8.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 6 Slide 8">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators6" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Blade Runner-->
+            <div class="experience" id="experience7">
+                <div class="row align-items-center text-center">
+                    <h1 class="pb-3 fw-bold" style="font-size: 5rem;">Blade Runner Spinner</h1>
+                </div>
+
+                <div class="row align-items-center">
+
+                    <!-- 📖 Descripción -->
+                    <div class="col-12 col-md-8 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <div>
+                            <p class="mb-1"><i class="bi bi-person-fill"></i> Role: Hard Surface Modeling, Retopology, Texturing</p>
+                            <p class="mb-1"><i class="bi bi-people-fill"></i> Team Size: 2</p>
+                            <p class="mb-1"><i class="bi bi-clock-fill"></i> Project Duration: 3 Days</p>
+                            <p class="mb-0"><i class="bi bi-tools"></i> Toolset: Maya, Marmoset Toolbag, Substance Painter</p>
+                        </div>
+
+                        <!-- 📋 Info del proyecto -->
+                        <div class="fs-5 pt-3 mt-3 small">
+                            <p class="fs-5">
+                                <strong>This project focused on recreating the iconic Blade Runner car</strong>, from a detailed <strong>high-poly hard surface model</strong> to a fully optimized <strong>low-poly version with manual retopology and PBR texturing</strong> in Substance Painter.
+                                <br><br>
+                                The asset was developed for use in the <strong>metaverse</strong>, where performance and optimization are crucial for smooth experiences on <strong>low-end devices</strong>.
+                                <br><br>
+                                The final model consisted of <strong>7,128 triangles</strong>, <strong>1 mesh</strong>, <strong>7 textures</strong>, and only <strong>2 materials</strong>—a highly optimized yet visually faithful representation of the legendary sci-fi vehicle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 📖 Thumbnail -->
+                    <div class="col-12 col-md-4 ps-md-3 mt-4 mt-md-0 text-center text-md-start">
+
+                        <img src="work/Blade Runner/Thumbnail 1.jpg" style="max-width: 100%; height: auto; border-radius: 1rem;">
+
+                    </div>
+                </div>
+
+
+                <div class="row align-items-center">
+                    <div class="col-12 mt-3 mb-3 text-center">
+                        <div class="ratio ratio-16x9">
+                            <iframe title="Blade Runner Spinner" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+                                    src="https://sketchfab.com/models/0e277804775a4934a25898e639253215/embed"
+                                    style="border:0;">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4 mb-md-0 position-relative">
+                    <!--🎠 Carrusel -->
+                    <div id="experiencecarouselContainer7" class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg mb-3">
+                        <div id="experiencecarouselExampleIndicators7" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators7" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Experience 7 Slide 1"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators7" data-bs-slide-to="1" aria-label="Experience 7 Slide 2"></button>
+                                <button type="button" data-bs-target="#experiencecarouselExampleIndicators7" data-bs-slide-to="2" aria-label="Experience 7 Slide 3"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active">
+                                    <img src="work/Blade Runner/Screenshot_1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 7 Slide 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Blade Runner/Screenshot_2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 7 Slide 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="work/Blade Runner/Screenshot_3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Experience 7 Slide 3">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#experiencecarouselExampleIndicators7" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#experiencecarouselExampleIndicators7" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
+    <hr class="divider">
+
     <!--Projects-->
-    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white;" id="projects">
+    <section class="py-5" style="color: white;" id="projects">
 
         <div class="container text-center mb-5">
             <h1 class="fw-bold projects-title">PROJECTS</h1>
@@ -191,56 +1069,56 @@
             <div class="col-auto d-flex gap-5">
                 <!-- Botón 1 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab1" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab1" autocomplete="off" checked>
                     <label class="btn btn-light" for="tab1" onclick="mostrarProyecto(1)">01</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 2 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab2" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab2" autocomplete="off">
                     <label class="btn btn-light" for="tab2" onclick="mostrarProyecto(2)">02</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 3 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab3" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab3" autocomplete="off">
                     <label class="btn btn-light" for="tab3" onclick="mostrarProyecto(3)">03</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 4 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab4" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab4" autocomplete="off">
                     <label class="btn btn-light" for="tab4" onclick="mostrarProyecto(4)">04</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 5 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab5" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab5" autocomplete="off">
                     <label class="btn btn-light" for="tab5" onclick="mostrarProyecto(5)">05</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 6 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab6" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab6" autocomplete="off">
                     <label class="btn btn-light" for="tab6" onclick="mostrarProyecto(6)">06</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 7 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab7" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab7" autocomplete="off">
                     <label class="btn btn-light" for="tab7" onclick="mostrarProyecto(7)">07</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
 
                 <!-- Botón 8 -->
                 <div class="d-flex flex-column align-items-center">
-                    <input type="radio" class="btn-check" name="tab-radio" id="tab8" autocomplete="off">
+                    <input type="radio" class="btn-check" name="tab-radio-proyecto" id="tab8" autocomplete="off">
                     <label class="btn btn-light" for="tab8" onclick="mostrarProyecto(8)">08</label>
                     <p class="arrow d-none"><i class="bi bi-caret-up-fill"></i></p>
                 </div>
@@ -336,6 +1214,7 @@
                             <p class="fs-5">
                                 A missing game, a glitchy world, and chaotic minigames inspired by
                                 <strong>Windows XP</strong>. Recover the lost pieces of your game before the system deletes you.
+                                <br> <strong>Made for the Buenos Aires Game Dev Jam 2025 (Theme: Something Lost)</strong>
                             </p>
                         </div>
 
@@ -419,7 +1298,9 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                In this <strong> round-based FPS co-op game, 1 to 4 players </strong> are trapped on a sci-fi spaceship, fighting through relentless waves of aggressive robots. With each round, the robotic enemies grow stronger, and teamwork is the key to surviving and escaping the relentless onslaught.
+                                In this <strong>round-based FPS co-op game for 1 to 4 players</strong>, you’re trapped on a <strong>sci-fi spaceship</strong>, fighting through relentless waves of aggressive robots. With each round, the enemies grow stronger, making <strong>teamwork and coordination</strong> essential for survival.
+                                <br><br>
+                                This project was <strong>developed for my university course on Multiplayer and Networking</strong>, focusing on <strong>real-time synchronization, communication,</strong> and <strong>cooperative gameplay systems.</strong>
                             </p>
                         </div>
 
@@ -440,7 +1321,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!--Food in the Wall-->
             <div class="proyecto" id="proyecto3">
@@ -511,7 +1391,9 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                Have you ever wondered what our everyday food is doing when we are not looking? A game show, of course! In this game, you will control a team of fruits and veggies that must try to SCALE themselves through crazy-shaped holes in giant cutting boards moving towards you. <br> <strong>Made for the GMTK Game Jam 2024 (Theme: Built to Scale)</strong>
+                                Have you ever wondered what our everyday food is doing when we are not looking?
+                                A game show, of course! In this game, you will control a team of fruits and veggies that must try to <strong>SCALE</strong> themselves through crazy-shaped holes in giant cutting boards moving towards you.
+                                <br> <strong>Made for the GMTK Game Jam 2024 (Theme: Built to Scale)</strong>
                             </p>
                         </div>
 
@@ -619,7 +1501,10 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                Ever wondered what happens inside your washing machine when you’re not looking? Turns out… it’s a high-stakes obstacle course! In Laundry Loops, you play as a charismatic sock who just wanted a peaceful day until a careless shove sends you tumbling into a looping nightmare of rinse, spin, and chaos. Dodge rogue t-shirts, slippery underwear, and detergent waves as you fight to survive a cycle of washing phases like deep soak, bleach storm, and turbo dry. Will you escape the loop, or become laundry lint forever?
+                                Ever wondered what happens inside your washing machine when you’re not looking? Turns out… it’s a high-stakes obstacle course!
+                                In <strong>Laundry Loops</strong>, you play as a charismatic sock who just wanted a peaceful day until a careless shove sends you tumbling into a looping nightmare of rinse, spin, and chaos.
+                                Dodge rogue t-shirts, slippery underwear, and detergent waves as you fight to survive a cycle of washing phases like deep soak, bleach storm, and turbo dry.
+                                <br> <strong>Made for the GMTK Game Jam 2025 (Theme: Loop)</strong>
                             </p>
                         </div>
 
@@ -716,7 +1601,10 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                T.I.M. is a high-octane 3D action-platformer where every second is a resource. You’re a robot with an internal self-destruct module on a 30-second timer, and your survival depends on grabbing shimmering energy crystals scattered through a fractured canyon and taking down enemy bots to recharge your battery. Master parkour, collect energy sources to extend your runtime, and balance risk vs. reward: ¿Slow and safe, or fast and dangerous?
+                                <strong>T.I.M.</strong> is a <strong>3D action-puzzle-platformer</strong> where <strong>every second counts as a resource</strong>.
+                                You play as a <strong>robot with a built-in self-destruct module</strong> set to detonate after 30 seconds — unless you recharge by <strong>collecting energy crystals</strong> or <strong>defeating enemy bots</strong>.
+                                Master <strong>fluid parkour movement</strong>, manage your <strong>energy strategically</strong>, and find the perfect balance between <strong>speed and survival</strong>: go <strong>slow and safe</strong>, or take the <strong>fast and dangerous</strong> route to stay alive.
+                                <br> <strong>Made for my University Video Game Jam 2025 (Theme: 30 Seconds)</strong>
                             </p>
                         </div>
 
@@ -832,7 +1720,9 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                I participated in the TechArt Worlds 2025 Challenge, an international competition focused on procedural generation and 3D technical art using Houdini. I achieved 7th place out of more than 30 participants, standing out for my sci-fi procedural project and my technical development throughout the challenge.
+                                I participated in the <strong>TechArt Worlds 2025 Challenge</strong>, an international competition focused on procedural generation and 3D technical art using Houdini
+                                <br>
+                                I achieved <strong>7th place</strong> out of more than 30 participants with a <strong>score of 9.1 out of 10</strong>, standing out for my <strong>sci-fi procedural project</strong> and the <strong>technical depth of my development</strong> throughout the challenge.
                             </p>
                         </div>
 
@@ -930,7 +1820,9 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                Voidshift is a first-person game where players must survive endless waves of enemies while trying to escape through an interdimensional portal. To succeed, they need to power up several <strong>interdimensional engines</strong> that energize the portal, blending strategy, action, and resource management. <br> The game features animated weapons, a crafting table for building defenses and items, and automated turrets.
+                                <strong>Voidshift</strong> is a <strong>first-person survival shooter game</strong> where players must endure <strong>endless waves of enemies</strong> while attempting to <strong>escape through an interdimensional portal</strong>.
+                                <br>
+                                <strong>This was my first 3D game developed in Unity</strong> for my <strong>second year at university</strong>, marking a key milestone in my learning journey as a game developer.
                             </p>
                         </div>
 
@@ -1039,7 +1931,7 @@
                         <!-- 📋 Info del proyecto -->
                         <div class="fs-5 pt-3 mt-3 small opacity-75">
                             <p class="fs-5">
-                                I wanted to test my 3D Skills in the shortest time possible. So this is my game ready Stylized binoculars made in 2 days only. Done highpoly, then retopo and low poly with 6.462 tris and 1 texture set in 4k res. Hand painted only in albedo map.
+                                I wanted to test my 3D Skills in the shortest time possible. So I made this hero asset, its a game ready Stylized binocular made in <strong>2 days only</strong>. Done highpoly, then retopo and low poly with 6.462 tris and 1 texture set in 4k res. Hand painted only in albedo map.
                             </p>
                         </div>
 
@@ -1062,12 +1954,14 @@
 
         </div>
     </section>
-    <!--CONTACT ME-->
-    <section class="py-5" style="background: radial-gradient(circle at top left, #5b00e0, #1a004f); color: white; font-family: 'Open Sans', sans-serif;" id="contactme">
 
-      <!--  <div class="container text-center mb-5">
-            <h1 class="fw-bold projects-title">EXPERIENCE</h1>
-        </div>-->
+    <hr class="divider">
+    <!--CONTACT ME-->
+    <section class="py-5" style="color: white; font-family: 'Open Sans', sans-serif;" id="contactme">
+
+        <!--  <div class="container text-center mb-5">
+              <h1 class="fw-bold projects-title">EXPERIENCE</h1>
+          </div>-->
 
         <div class="container text-center mb-5">
             <h1 class="fw-bold projects-title" style="font-size: 5rem;">CONTACT ME</h1>
@@ -1125,7 +2019,8 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            mostrarProyecto(1)
+            mostrarProyecto(1);
+            mostrarExperiencia(1);
         });
 
         function mostrarVideo(index) {
@@ -1141,7 +2036,6 @@
             document.getElementById(`carouselContainer${index}`).classList.remove('d-none');
             video.pause();
         }
-
 
         function mostrarProyecto(index) {
             // Pausa y reinicia todos los videos
@@ -1185,15 +2079,60 @@
                 }
             }
 
-            // Actualiza flechita visual
-            document.querySelectorAll('.arrow').forEach(a => a.classList.add('d-none'));
-            const activeArrow = document.querySelector(`#tab${index}`).parentElement.querySelector('.arrow');
+            // ✅ Actualiza flechita solo dentro de la sección #projects
+            const projectSection = document.getElementById('projects');
+            projectSection.querySelectorAll('.arrow').forEach(a => a.classList.add('d-none'));
+            const activeArrow = projectSection.querySelector(`#tab${index}`).parentElement.querySelector('.arrow');
             if (activeArrow) activeArrow.classList.remove('d-none');
         }
 
+        function mostrarExperiencia(index) {
+            // Pausa y reinicia todos los videos
+            document.querySelectorAll('.experience video').forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
 
+            // Oculta todos los proyectos
+            document.querySelectorAll('.experience').forEach(div => {
+                div.classList.add('d-none');
+            });
 
+            // Muestra el proyecto seleccionado
+            const proyectoActivo = document.getElementById(`experience${index}`);
+            if (proyectoActivo) {
+                proyectoActivo.classList.remove('d-none');
+
+                // Contenedores de video y carrusel
+                const videoContainers = document.querySelectorAll(`#experience${index} .experiencevideoContainer`);
+                const carouselContainer = document.getElementById(`experiencecarouselContainer${index}`);
+
+                videoContainers.forEach(container => {
+                    const video = container.querySelector('video');
+                    if (video) {
+                        video.currentTime = 0;
+                        video.play();
+                    }
+                });
+
+                // Reinicia el carousel a la primera slide
+                if (carouselContainer) {
+                    const carouselEl = carouselContainer.querySelector('.carousel');
+                    if (carouselEl) {
+                        const carousel = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl);
+                        carousel.to(0); // Va a la primera slide
+                    }
+                }
+            }
+
+            // ✅ Actualiza flechita solo dentro de la sección #experience
+            const expSection = document.getElementById('experience');
+            expSection.querySelectorAll('.arrow').forEach(a => a.classList.add('d-none'));
+            const activeArrow = expSection.querySelector(`#experiencetab${index}`).parentElement.querySelector('.arrow');
+            if (activeArrow) activeArrow.classList.remove('d-none');
+        }
     </script>
+
 
 
 

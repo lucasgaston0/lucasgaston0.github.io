@@ -5,6 +5,44 @@
   font-style: normal;
 }
 
+body {
+    background: /* Capa superior: degrade negro a transparente */
+    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%),
+    /* Capa inferior: gradiente animado */
+    linear-gradient(-45deg, #0a001a, #3b00b8, #9147ff, #0d47a1);
+    background-size: 100% 100%, 400% 400%; /* la primera capa estática, la segunda animada */
+    background-repeat: no-repeat;
+    animation: gradientFlow 10s ease infinite;
+}
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* no bloquea clics */
+    background-image: url('img/morphing-diamonds.svg');
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: auto; /* o 'contain' si querés que no se escale */
+    opacity: 0.15; /* nivel de visibilidad del patrón */
+    z-index: -1; /* debajo del contenido pero arriba del fondo animado */
+}
+
 header {
     font-family: 'Open Sans';
     font-weight: 700;
@@ -43,7 +81,6 @@ header {
   transition: width 0.3s;
 }
 
-
 .navbar li a:hover::after {
   width: 100%; 
 }
@@ -78,6 +115,14 @@ header.fondo {
   margin-top: 610px;
   text-align: left;
   padding-left: 0; 
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+    margin: 3rem 0;
 }
 
 .gradient-border {
@@ -198,6 +243,7 @@ header.fondo {
 
 /* Font propia */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 /* Mostrar la flecha solo si el radio está seleccionado */
 .btn-check:checked + .btn-light + .arrow {
     display: block !important;
@@ -218,12 +264,12 @@ header.fondo {
     transition: all 0.2s;
 }
 
-    .btn-light:hover,
-    .btn-light:focus,
-    .btn-light:active {
-        background-color: transparent !important;
-        box-shadow: none !important;
-    }
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
 
 .btn-check:checked + .btn-light {
     border: none;
@@ -244,4 +290,70 @@ header.fondo {
 .contact-icon:hover {
     transform: scale(1.1);
     color: #fff; /* color al hover, puedes cambiarlo */
+}
+
+/* ============================= */
+/* EXPERIENCE TAB BUTTONS STYLE  */
+/* ============================= */
+
+#experience .btn-check:checked + .btn-light + .arrow {
+    display: block !important;
+    margin-top: -30px;
+    padding-left: 15px;
+    font-size: 30px;
+    color: #fff;
+}
+
+/* Estilos de los botones */
+#experience .btn-light {
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border: none;
+    transition: all 0.2s;
+}
+
+#experience .btn-light:hover,
+#experience .btn-light:focus,
+#experience .btn-light:active {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#experience .btn-check:checked + .btn-light {
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Flecha oculta por defecto */
+#experience .arrow {
+    display: none;
+}
+
+/* Ajustes de espaciado entre botones */
+#experience .col-auto {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #experience .btn-light {
+        font-size: 36px;
+    }
+
+    #experience .btn-check:checked + .btn-light + .arrow {
+        margin-top: -20px;
+        font-size: 22px;
+    }
+
+    #experience .col-auto {
+        gap: 1.5rem;
+    }
 }
