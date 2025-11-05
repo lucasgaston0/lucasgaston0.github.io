@@ -91,6 +91,10 @@ header {
   width: 100%; 
 }
 
+.navbar li.lang-item a::after {
+    content: none; /* quita el subrayado */
+}
+
 header.fondo {
     min-height: 100vh;
 }
@@ -241,7 +245,7 @@ header.fondo {
 }
 
 .projects-title {
-    font-size: clamp(3.3rem, 8vw, 10rem);
+    font-size: clamp(2.5rem, 8vw, 10rem);
     font-family: "MiFuente", sans-serif; /* reemplazá por el nombre real */
     line-height: 1;
     letter-spacing: 2px;
