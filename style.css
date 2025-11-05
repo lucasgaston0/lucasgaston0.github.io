@@ -55,6 +55,12 @@ header {
     box-shadow: none !important;
 }
 
+/* Evita que el subrayado ocupe todo el ancho en el menú colapsado */
+.navbar-collapse .nav-link {
+    display: inline-block;
+    width: auto;
+}
+
 .navbar a {
   color: white !important;
   font-size: 30px;
@@ -103,8 +109,8 @@ header.fondo {
 .inicio h1 {
     font-family: 'MiFuente';
     margin-bottom: 0.2rem;
-    line-height: 60px;
-    font-size: 70px;
+    line-height: 1.1;
+    font-size: clamp(3rem, 6vw, 4.5rem); /* se adapta automáticamente */
 }
 
 .inicio {
@@ -235,10 +241,14 @@ header.fondo {
 }
 
 .projects-title {
-    font-size: 150px;
+    font-size: clamp(4rem, 8vw, 10rem);
     font-family: "MiFuente", sans-serif; /* reemplazá por el nombre real */
     line-height: 1;
     letter-spacing: 2px;
+}
+
+.experience-titles {
+    font-size: clamp(3rem, 8vw, 6rem);
 }
 
 /* Font propia */
